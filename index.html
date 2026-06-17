@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Food Sales Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#FFF8F0;
+margin:0;
+padding:20px;
+}
+
+.header{
+background:#FF6B35;
+padding:15px;
+border-radius:12px;
+color:white;
+font-size:28px;
+font-weight:600;
+text-align:center;
+margin-bottom:20px;
+}
+
+.kpi-container{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.kpi{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.kpi h2{
+margin:0;
+color:#FF6B35;
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+select{
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.chart-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.chart-card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+canvas{
+width:100% !important;
+height:350px !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🍔 Food Sales Dashboard
+</div>
+
+<div class="filters">
+
+<select id="itemTypeFilter">
+<option value="">All Item Types</option>
+</select>
+
+<select id="transactionTypeFilter">
+<option value="">All Transaction Types</option>
+</select>
+
+<select id="timeFilter">
+<option value="">All Time of Sale</option>
+</select>
+
+</div>
+
+<div class="kpi-container">
+
+<div class="kpi">
+<h2 id="sales">0</h2>
+<p>Total Sales</p>
+</div>
+
+<div class="kpi">
+<h2 id="avgOrder">0</h2>
+<p>Average Order Value</p>
+</div>
+
+<div class="kpi">
+<h2 id="orders">0</h2>
+<p>Total Orders</p>
+</div>
+
+<div class="kpi">
+<h2 id="qty">0</h2>
+<p>Total Quantity</p>
+</div>
+
+</div>
+
+<div class="chart-container">
+
+<div class="chart-card">
+<canvas id="salesTrend"></canvas>
+</div>
+
+<div class="chart-card">
+<canvas id="itemPie"></canvas>
+</div>
+
+<div class="chart-card">
+<canvas id="itemTypeBar"></canvas>
+</div>
+
+<div class="chart-card">
+<canvas id="transactionBar"></canvas>
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
